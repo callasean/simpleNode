@@ -10,13 +10,13 @@ var connection = mysql.createConnection({
     host: '206.12.96.242',
     user: 'group5',
     password: 'untanglingGroup5',
-    database: 'testDB5'
+    database: 'group5DB'
 });
 connection.connect();
 
 var employees;
 
-connection.query('SELECT * FROM employees', function(err, rows, fields) {
+connection.query('SELECT * FROM coupons where category = "FOOD" or category = "GENERAL"', function(err, rows, fields) {
     if (err) throw err;
 
     employees = rows;
@@ -45,6 +45,6 @@ app.get('/about', function(req, res) {
     });
 });
 
-app.listen(8000, function() {
-    console.log('Example app listening on port 8000!')
+app.listen(8005, function() {
+    console.log('Example app listening on port 8005!')
 })
