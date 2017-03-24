@@ -3,6 +3,7 @@
 <html lang="en">
 <head>
     <% include head %>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body class="container">
 
@@ -15,15 +16,21 @@
             <h1>Homework #10</h1>
             <p>By: Sean Callaghan, Annette Seto, Tristan Wilhelmsen</p>
         </div>
-
+        <form action="/query" method="post">
         <h2>Coupons Available</h2>
         <ul>
+            <label for="queryStr">Enter Category</label>
+            <input id="queryStr" type="text" name="queryStr" placeholder="example: 'food'">
+            <button id="execute" type="submit">Search</button>
+        </form>
+
+        <h2>Results</h2>
+        <ul>
             <% employees.forEach(function(employee) { %>
-                <li><%= employee.name %> - <%= employee.category %></li>
+                <li><%= employee.name %> - <%= employee.category %> - <%= employee.percentage_off %>% off</li>
             <% }); %>
         </ul>
     </main>
-
 
     
 </body>
